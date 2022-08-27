@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
 
@@ -7,16 +7,19 @@ import { ApiService } from '../services/api.service';
   templateUrl: './add-dialog-box.component.html',
   styleUrls: ['./add-dialog-box.component.scss']
 })
+
+
 export class AddDialogBoxComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private api: ApiService,
+    private api: ApiService
   ) { }
+
 
   groceryList !: FormGroup
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.groceryList = this.formBuilder.group({
       name: ['', Validators.required],
       category: ['', Validators.required],
@@ -29,7 +32,7 @@ export class AddDialogBoxComponent implements OnInit {
   }
 
 
-  foods: Food[] = [
+  foods = [
     { value: 'vegetable', viewValue: 'Vegetable/Fruit' },
     { value: 'nonVeg', viewValue: 'Meat/Fish' },
     { value: 'dairy', viewValue: 'Dairy' },
@@ -52,7 +55,7 @@ export class AddDialogBoxComponent implements OnInit {
 
 }
 
-interface Food {
-  value: string;
-  viewValue: string;
-}
+// interface Food {
+//   value: string;
+//   viewValue: string;
+// }
