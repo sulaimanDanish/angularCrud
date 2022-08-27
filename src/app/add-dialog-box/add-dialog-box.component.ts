@@ -36,18 +36,18 @@ export class AddDialogBoxComponent implements OnInit {
     { value: 'spice', viewValue: 'Spices' },
   ];
 
-  addItem() {
-    if (this.groceryList.valid) {
-      this.api.addGrocery(this.groceryList.value)
-        .subscribe({
-          next:(res)=>{
-          },
-          error:()=>{
+  // addItem() {
+  //   if (this.groceryList.valid) {
+  //     this.api.addGrocery(this.groceryList.value)
+  //       .subscribe({
+  //         next:(res)=>{
+  //         },
+  //         error:()=>{
 
-          }
-        })
-    }
-  }
+  //         }
+  //       })
+  //   }
+  // }
 
 
 }
