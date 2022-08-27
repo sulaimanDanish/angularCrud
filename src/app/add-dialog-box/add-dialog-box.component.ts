@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-dialog-box',
@@ -13,7 +12,6 @@ export class AddDialogBoxComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private api: ApiService,
-    public toastr:ToastrService
   ) { }
 
   groceryList !: FormGroup
@@ -43,10 +41,8 @@ export class AddDialogBoxComponent implements OnInit {
       this.api.addGrocery(this.groceryList.value)
         .subscribe({
           next:(res)=>{
-            this.toastr.success('Good Job','Item added successfully!');
           },
           error:()=>{
-            this.toastr.error('Alas!','Item not added.');
 
           }
         })
